@@ -1,9 +1,8 @@
 ---
-- hosts: webservers
+- hosts: "{{ host }}"
   vars:
     http_port: 80
-    max_clients: 200
-  remote_user: root
+  become: "{{ input }}"
   tasks:
   - name: ensure apache is at the latest version
     yum:
