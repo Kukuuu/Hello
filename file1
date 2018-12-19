@@ -12,7 +12,7 @@
   - name: write the apache config file
     template:
       src: /home/me/jenkin/conf/httpd.j2
-      dest: /etc/httpd.conf
+      dest: /etc/httpd/conf/httpd.conf
     notify:
     - restart apache
   - name: ensure apache is running
