@@ -2,7 +2,8 @@
 - hosts: "{{ host }}"
   vars:
     http_port: 80
-  become: "{{ input }}"
+    gather_facts: False
+    become: "{{ input }}"
   tasks:
   - name: ensure apache is at the latest version
     yum:
