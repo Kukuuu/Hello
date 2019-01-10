@@ -2,25 +2,10 @@
 - hosts: "{{ host }}"
   vars:
     http_port: 80
-    gather_facts: False
+    gather_facts: true
     become: "{{ input }}"
   tasks:
   - name: ensure apache is at the latest version
     yum:
       name: httpd
       state: latest
-  - name: write the apache config file
-    template:
-      src: /home/me/jenkin/conf/httpd.j2
-      dest: /etc/httpd/conf/httpd.conf
-    notify:
-    - restart apache
-  - name: ensure apache is running
-    service:
-      name: httpd
-      state: started
-  handlers:
-    - name: restart apache
-      service:
-        name: httpd
-        state: restarted
