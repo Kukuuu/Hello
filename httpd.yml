@@ -3,7 +3,7 @@
   vars:
     http_port: 80
     gather_facts: true
-    become: "{{ input }}"
+ #   become: "{{ input }}"
   tasks:
   - name: ensure apache is at the latest version
     yum:
